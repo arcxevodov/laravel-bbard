@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\BbsController;
 use \App\Http\Controllers\HomeController;
+use \App\Http\Controllers\CommentController;
 
 Route::get('/', [BbsController::class, 'index'])
     ->name('index');
@@ -36,3 +37,6 @@ Route::delete('/home/{bb}', [HomeController::class, 'destroyBb'])
 
 Route::get('/{bb}', [BbsController::class, 'detail'])
     ->name('detail');
+
+Route::post('/{bb}', [CommentController::class, 'storeComment'])
+    ->name('comment.store');
