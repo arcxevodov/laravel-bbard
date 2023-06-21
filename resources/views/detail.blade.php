@@ -6,4 +6,9 @@
     <p>Создано: {{ $bb->user->name }}</p>
     <p>{{ $bb->price }}руб.</p>
     <p><a href="{{ route('index') }}">Вернуться назад</a></p>
+    <h2>Комментарии</h2>
+    @foreach($bb->comments as $comment)
+        <b>{{ $comment->title }}</b>
+        <p>{{ $comment->content }}</p>
+    @endforeach
 @endsection
