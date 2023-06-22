@@ -13,6 +13,9 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])
     ->name('home');
 
+Route::get('/search', [BbsController::class, 'search'])
+    ->name('search');
+
 Route::get('/home/add', [HomeController::class, 'showAddBbForm'])
     ->name('bb.add');
 

@@ -1,7 +1,15 @@
 @extends('layouts.base')
 @section('title', 'Главная')
 @section('main')
-    @if(count($bbs) >0)
+    <form action="{{ route('search') }}" method="get">
+        <div class="input-group mb-3">
+            <input type="text" name="q" class="form-control rounded" placeholder="Введите название объявления...">
+            <div class="input-group-append px-3">
+                <button class="btn btn-primary" type="button">Найти</button>
+            </div>
+        </div>
+    </form>
+    @if(count($bbs) > 0)
         <table class="table table-stripped">
             <thead>
             <tr>
