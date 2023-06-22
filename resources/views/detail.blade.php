@@ -22,8 +22,16 @@
         </form>
         <div class="comments-list w-25 py-3">
             @foreach($bb->comments as $comment)
-                <b>{{ $comment->title }}</b>
-                <p>{{ $comment->content }}</p>
+                <div class="py-2">
+                    <div class="d-flex flex-row pb-2">
+                        <img src="{{ asset('/images/user.png') }}" alt="User" width="50px">
+                        <div class="d-flex flex-column px-2">
+                            <b><i>{{ \App\Models\User::where('id', $comment->user_id)->get()->first()->name }}</i></b>
+                            <b>{{ $comment->title }}</b>
+                        </div>
+                    </div>
+                    <p>{{ $comment->content }}</p>
+                </div>
             @endforeach
         </div>
     </div>
